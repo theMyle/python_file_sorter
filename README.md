@@ -5,7 +5,7 @@ PySorter v2.0
 Created by John Kyle J. Desamparo     Date: 3/07/2023
 
 Notes:
-  Hi! This is a hobby project of mine, the PySorter. I'm a newb self tot pogrammer who likes to code like a litol beach. Feel free to re-use or change the code to your liking. If you have any comments, issues, or suggestions feel free to reach out. You can contact me via Gmail: jangkayld@gmail.com. || Twitter: @Benf_105
+  Hi! This is a hobby project of mine, the PySorter. I'm a newb self tot pogrammer who loves to code bread. Feel free to re-use or change the code to your liking. If you have any comments, issues, or suggestions feel free to reach out. You can contact me via Gmail: jangkayld@gmail.com. || Twitter: @Benf_105
 
 What is PySorter:
   PySorter is a simple python file sorter CLI app I made to clean, fix, and organize my files. Sometimes when I download or transfer
