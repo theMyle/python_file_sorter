@@ -2,9 +2,9 @@
 
 A simple python file sorter CLI app
 
-## PySorter v2.0
+## PySorter v1.0
 Created by John Kyle J. Desamparo  
-Date: 3/07/2023
+Date: 13/06/2023
 
 ## Notes
 
