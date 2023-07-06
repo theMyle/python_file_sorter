@@ -12,7 +12,7 @@ Hi! This is a hobby project of mine, the PySorter. I'm a newbie self-taught prog
 
 ## What is PySorter
 
-PySorter is a simple python file sorter CLI app I made to clean, fix, and organize my files. Sometimes when I download or transfer lots and lots of files, I sometimes forget organizing them, so yeah why not let Python do the job.
+PySorter is a simple python file sorter CLI app I made to clean, fix, and organize my files.I Sometimes download or transfer lots and lots of and sometimes forget organizing them, so yeah why not let Python do the job.
 
 ## How it Works
 
@@ -21,3 +21,5 @@ PySorter is a simple python file sorter CLI app I made to clean, fix, and organi
 3. Create a folder named "PySorter" to store the files.
 4. Create subfolders for each identified file extension, such as .docx and .pdf.
 5. Move the files to their respective folders accordingly.
+
+### Un_sorter not implemented yet
