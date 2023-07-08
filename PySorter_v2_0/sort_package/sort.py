@@ -19,7 +19,7 @@ def get_list_of_files():
     """Get a list of all available FILES"""
     list_of_files = os.listdir(os.getcwd())
     # exclude folders
-    list_of_files = [i for i in list_of_files if os.path.isfile(f"{os.getcwd()}/{i}")]
+    list_of_files = [i for i in list_of_files if os.path.isfile(os.path.join(os.getcwd(), i))] 
     print(f"\nList of files:\n{list_of_files}")
     return list_of_files
 
@@ -55,7 +55,8 @@ def create_sub_folders(folder_names):
     """Creating sub folders for each unique file"""
     for item in folder_names:
         try:
-            os.mkdir(rf"{os.getcwd()}\{item}")
+            folder_path = os.path.join(os.getcwd(), item)
+            os.mkdir(folder_path)
             print(f"{item} sub folder created")
         except FileExistsError as fe:
             print(f"{item} sub folder already exists")
@@ -69,11 +70,10 @@ def move_items(extension, file_names):
     print(" ")
     base_path = os.path.dirname(os.getcwd())
     for item in extension:
-        folder_path = rf"{os.getcwd()}\{item}"
+        folder_path = os.path.join(os.getcwd(), item)
         for names in file_names:
             # get the file extension from the file name
-            ext = os.path.splitext(names)
-            ext = ext[-1]
+            ext = os.path.splitext(names)[-1]
             # if file extension is similar to the folder name then move the file to the folder
             if item == ext:
                 try:
