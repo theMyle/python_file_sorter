@@ -1,4 +1,3 @@
-# imports
 import tkinter as tk
 from tkinter import filedialog
 import os
@@ -28,3 +27,4 @@ def select_folder():
     print(f"\n{folder} folder selected")
 
     os.chdir(f"{path}")  # Change directory to the new path
+    return 0
