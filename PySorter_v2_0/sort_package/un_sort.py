@@ -50,15 +50,15 @@ def move_items(arg):
             try:
                 # (filepath, destination)
                 shutil.move(file_path, base_path)
-                count += 1
+                success += 1
                 print(f"Successfully Moved - [{x}]")
             except FileExistsError:
                 print(f"A FILE WITH THE NAME [\"{x}\"] ALREADY EXISTS. Skipping...")
     
     if success > 0:
-        print(f"\n[ A total of {success}(success) files were moved outside ]")
+        print(f"\n[ A total of {success} (SUCCESS) files were moved outside ]")
     if failed > 0:
-        print(f"[ A total of {failed}(failed) files remained inside the PySort_Folder ]")
+        print(f"[ A total of {failed} (FAILED) files remained inside the PySort_Folder ]")
     return 0
 
 
