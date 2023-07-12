@@ -5,6 +5,7 @@ A simple python file sorter CLI app
 ## PySorter v1.0
 Created by John Kyle J. Desamparo  
 Date: 13/06/2023
+Python Version: [Python 3.11.4]
 
 ## Notes
 
