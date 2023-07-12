@@ -29,5 +29,6 @@ def select_folder():
 
         os.chdir(f"{path}")  # Change directory to the new path
     else:
-        sys.exit()
+        print(f"\nNo folder selected")
+        exit_program()
     return 0
