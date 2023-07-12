@@ -23,17 +23,16 @@ def start_menu():
         print("\t2 - Exit the program")
         user_input = input(">>> ")
 
-        match (user_input):
-            case "1":
-                print("\nPlease select a folder that you want the contents to be sorted ")
-                print("(Do NOT select the 'PySort_Folder' if it already exists or else it will create another 'PySort_Folder' inside it)")
-                input("\nPress 'Enter' to continue")
-                fn.select_folder()
-                sort_options()
-            case "2":
-                fn.exit_program()
-            case _:
-                print("Please select an options from the choices above.")
+        if user_input == "1":
+            print("\nPlease select a folder that you want the contents to be sorted ")
+            print("(Do NOT select the 'PySort_Folder' if it already exists or else it will create another 'PySort_Folder' inside it)")
+            input("\nPress 'Enter' to continue")
+            fn.select_folder()
+            sort_options()
+        elif user_input == "2":
+            fn.exit_program()
+        else:
+            print("Please select an options from the choices above.")
 
 # sort/un_sort option menu
 def sort_options():
@@ -45,12 +44,11 @@ def sort_options():
         print("\t3 - Exit the program")
         user_input = input(">>> ")
 
-        match(user_input):
-            case "1":
-                sort.sort_files()
-            case "2":
-                un_sort.un_sort_files()
-            case "3":
+        if user_input == "1":
+            sort.sort_files()
+        elif user_input == "2":
+            un_sort.un_sort_files()
+        elif user_input == "3":
                 fn.exit_program()
-            case _:
-                print("Please select an options from the choices above.")
+        else:
+            print("Please select an options from the choices above.")
