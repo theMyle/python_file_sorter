@@ -1,5 +1,4 @@
 # Python_File_Sorter-PySorter-
-
 A simple python file sorter CLI app
 
 ## PySorter v1.0
@@ -21,6 +20,11 @@ PySorter is a simple python file sorter CLI app I made to clean, fix, and organi
 2. Scan the files in that directory and store the types of files present.
 3. Create a folder named "PySorter" to store the files.
 4. Create subfolders for each identified file extension, such as .docx and .pdf.
-5. Move the files to their respective folders accordingly.
+5. Move the files to their respective folders accordingly.  
 
-### Un_sorter finally implemented!
+## Un_sorter finally implemented!
+
+1. Scans your PySort directory and sub directory.  
+2. Moves the files inside the base directory of the folder selected.  
+
+### Enjoy!
