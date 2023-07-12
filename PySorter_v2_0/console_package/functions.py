@@ -22,9 +22,12 @@ def select_folder():
     root.attributes("-topmost", True)  # Set the window attributes to be "topmost"
     path = filedialog.askdirectory()  # Sets the path to the selected folder
 
-    folder = path.split("/")
-    folder = folder[-1]
-    print(f"\n{folder} folder selected")
+    if path != "":
+        folder = path.split("/")
+        folder = folder[-1]
+        print(f"\n{folder} folder selected")
 
-    os.chdir(f"{path}")  # Change directory to the new path
+        os.chdir(f"{path}")  # Change directory to the new path
+    else:
+        sys.exit()
     return 0
