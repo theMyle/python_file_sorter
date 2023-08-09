@@ -25,7 +25,7 @@ def select_folder():
     if path != "":
         folder = path.split("/")
         folder = folder[-1]
-        print(f"\n{folder} folder selected")
+        print(f"\n{folder} selected")
 
         os.chdir(f"{path}")  # Change directory to the new path
     else:

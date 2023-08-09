@@ -40,7 +40,9 @@ def move_items(arg):
     folders_list = os.listdir(os.getcwd())
     success = 0
     failed = 0
-    print("")
+
+    if folders_list:
+        print("\nMoving...\n")
 
     for i in folders_list:
         folder_path = os.path.join(os.getcwd(), i)
@@ -56,9 +58,9 @@ def move_items(arg):
                 print(f"A FILE WITH THE NAME [\"{x}\"] ALREADY EXISTS. Skipping...")
     
     if success > 0:
-        print(f"\n[ A total of {success} (SUCCESS) files were moved outside ]")
+        print(f"\n[ A total of {success} (/) files were moved outside ]")
     if failed > 0:
-        print(f"[ A total of {failed} (FAILED) files remained inside the PySort_Folder ]")
+        print(f"[ A total of {failed} (X) files remained inside the PySort_Folder ]")
     return 0
 
 

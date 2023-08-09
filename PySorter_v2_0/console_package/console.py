@@ -12,7 +12,7 @@ def start_console():
 # app startup info (ex: version, title, etc)
 def start_app():
     print(f"### Welcome to {config.program_title} {config.version} By JKyle ###")
-    print("The program will store the files to a folder named \"PySort_Folder\"")
+    #print("The program will store the files to a folder named \"PySort_Folder\"")
 
 # main program menu
 def start_menu():
@@ -24,9 +24,9 @@ def start_menu():
         user_input = input(">>> ")
 
         if user_input == "1":
-            print("\nPlease select a folder that you want the contents to be sorted ")
-            print("(Do NOT select the 'PySort_Folder' if it already exists or else it will create another 'PySort_Folder' inside it)")
-            input("\nPress 'Enter' to continue")
+            #print("\nPlease select a folder that you want the contents to be sorted ")
+            #print("(Do NOT select the 'PySort_Folder' if it already exists or else it will create another 'PySort_Folder' inside it)")
+            #input("Press 'Enter' to continue")
             fn.select_folder()
             sort_options()
         elif user_input == "2":

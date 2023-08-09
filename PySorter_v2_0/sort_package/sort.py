@@ -6,8 +6,9 @@ import shutil
 
 def sort_files():
     """Main sort function logic"""
-    listOfFiles = get_list_of_files()
     create_folder()
+    listOfFiles = get_list_of_files()
+    move_to_folder()
     fileExtensions = get_list_of_extensions(listOfFiles)
     sub_folders = create_sub_folders(fileExtensions)
     move_items(extension=fileExtensions, file_names=listOfFiles)
@@ -26,18 +27,29 @@ def get_list_of_files():
 
 def create_folder():
     """Create a PySort Folder"""
-    PySort_folder_path = os.path.join(os.getcwd(), config.folder_name)
+    active_folder_path = os.getcwd()
+    active_folder_name = active_folder_path.split("\\")[-1]
+    # Checks if the user is already in the PySort Folder
+    if (active_folder_name == config.folder_name):
+        print("\nAlready in the PySort Folder")
+    else:
+        try:
+            # Create a folder in the current directory
+            os.mkdir(config.folder_name)
+            print(f"\nCreated a new {config.folder_name}")
+        except FileExistsError:
+            pass
+        return 0
 
+
+def move_to_folder():
+    PySort_folder_path = os.path.join(os.getcwd(), config.folder_name)
     try:
-        # Create a folder in the current directory
-        os.mkdir(config.folder_name)
         os.chdir(PySort_folder_path)
-        print(f"\nCreated a new {config.folder_name}")
     except FileExistsError:
-        # Uses existing folder if there's any
         os.chdir(PySort_folder_path)
         print(f"\nUsing an existing {config.folder_name}")
-    return 0
+    return 0 
 
 
 def get_list_of_extensions(listOfFiles):
