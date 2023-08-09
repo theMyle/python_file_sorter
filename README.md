@@ -2,13 +2,12 @@
 A simple python file sorter CLI app
 
 ## PySorter v1.0
-Created by John Kyle J. Desamparo  
 Date: 13/06/2023  
 Python Version: [Python 3.11.4]
 
 ## Notes
 
-Hi! This is a hobby project of mine, the PySorter. I'm a newbie self-taught programmer who loves to code bread. Feel free to re-use or change the code to your liking. If you have any comments, issues, or suggestions, feel free to reach out. You can contact me via Gmail: jangkayld@gmail.com or Twitter: @Benf_105.
+Hi! This is a hobby project of mine, the PySorter. I'm a newbie self-taught programmer who loves to code bread. Feel free to re-use or change the code to your liking. If you have any comments, issues, or suggestions, feel free to reach out. You can contact me via Twitter: @Benf_105.
 
 ## What is PySorter
 
