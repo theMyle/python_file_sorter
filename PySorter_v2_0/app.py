@@ -18,9 +18,11 @@
 # [ 5. Finally, the program moves the files to each of their respective folder accordingly. --------------------------------]
 
 # importing packages
-import console_package as cp
-import sort_package as sp
+from console_package import console as cp
 
 # main function
 def Main():
-    cp.start_console
+    cp.start_console()
+
+if __name__ == "__main__":
+    Main()

@@ -1,6 +1,0 @@
-UnSort Algo:
-
-1. Scan the contents of the PySort folder
-2. Scan Each directory inside the python folder
-3. Move the items outside the PySort folder
-4. Check if PySort Folder is empty then delete it
