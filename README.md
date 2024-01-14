@@ -1,4 +1,4 @@
-# Python_File_Sorter-PySorter- #
+# Python File Sorter (-PySorter-) #
 
 ## Versions ##
  v1.0 - Date: 13/06/2023  || Python Version: [3.11.4].  
