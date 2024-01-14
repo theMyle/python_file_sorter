@@ -1,9 +1,9 @@
 # Python_File_Sorter-PySorter- #
 
 ## Versions ##
- v1.0 - Date: 13/06/2023  || Python Version: [3.11.4]
- v2.0 - Date: 3/07/2023   || Python Version: [3.11.4]
- v3.0 - Date: 1/12/2024   || Python Version: [3.12.1] (Current)
+ v1.0 - Date: 13/06/2023  || Python Version: [3.11.4].  
+ v2.0 - Date: 3/07/2023   || Python Version: [3.11.4].  
+ v3.0 - Date: 1/12/2024   || Python Version: [3.12.1] (Current).  
 
 ## What is PySorter ##
 
