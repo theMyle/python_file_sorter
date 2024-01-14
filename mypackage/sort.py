@@ -4,19 +4,29 @@ import shutil
 
 
 def sort_files():
-    """Main sort function logic"""
-    create_folder()
-    listOfFiles = get_list_of_files()
-    move_to_folder()
+
+    try:
+        os.mkdir("Pysort_Folder")
+        print("Created a Pysort folder")
+    except FileExistsError:
+        print("Using an existing Pysort folder ")
+        pass
+
+    files = get_files()
+    extensions = get_extensions()
+
     fileExtensions = get_list_of_extensions(listOfFiles)
+
     sub_folders = create_sub_folders(fileExtensions)
+
     move_items(extension=fileExtensions, file_names=listOfFiles)
+
     functions.exit_program()
+
     return 0
 
 
-def get_list_of_files():
-    """Get a list of all available FILES"""
+def get_files():
     list_of_files = os.listdir(os.getcwd())
     # exclude folders
     list_of_files = [i for i in list_of_files if os.path.isfile(os.path.join(os.getcwd(), i))] 
@@ -25,7 +35,6 @@ def get_list_of_files():
 
 
 def create_folder():
-    """Create a PySort Folder"""
     active_folder_path = os.getcwd()
     active_folder_name = active_folder_path.split("\\")[-1]
     # Checks if the user is already in the PySort Folder
@@ -51,15 +60,16 @@ def move_to_folder():
     return 0 
 
 
-def get_list_of_extensions(listOfFiles):
-    """Get the list of all available FILETYPES and store it"""
-    all_extensions = []
-    for item in listOfFiles:
-        file_name = os.path.splitext(item)
+def get_extensions(files):
+    list = []
+    for items in files:
+        file_name = os.path.splitext(items)
         extension = file_name[-1]
-        if extension not in all_extensions:
-            all_extensions.append(extension)
-    return all_extensions
+        
+        if extension not in list:
+            list.append(extension)
+
+    return list
 
 
 def create_sub_folders(folder_names):
