@@ -1,5 +1,4 @@
-from config_package import config
-from console_package import functions
+import functions
 import os
 import shutil
 
