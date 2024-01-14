@@ -4,6 +4,6 @@
 
 from mypackage import menu
 
-print("### PythonFileSorter  ###")
+print("_-_-_   Python File Sorter   _-_-_")
 
 menu.start()
