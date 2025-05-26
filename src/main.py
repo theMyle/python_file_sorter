@@ -1,4 +1,7 @@
 import os
+import sys
+
+from traitlets import default
 
 class FileEntry:
 	def __init__(self, absPath, destPath, fileName, ext):
@@ -28,9 +31,11 @@ def scanFiles(output_dir_name, path) -> tuple[list[FileEntry], set[str]]:
 def moveFile(file: FileEntry):
 	# auto rename if file exists
 
+	# skip "sorted" files
 	if file.srcPath == file.destPath:
 		return
 
+	# move if no existing file
 	res = os.path.exists(file.destPath)
 	if not res:
 		os.rename(file.srcPath, file.destPath)
@@ -39,20 +44,31 @@ def moveFile(file: FileEntry):
 	counter = 1
 	destDirName = os.path.dirname(file.destPath)
 
+	# will loop until destPath is free and move the file
 	while res:
-		nums = range(counter, counter+5)
-		counter += 5
-		for i in nums:
+		for i in range(counter, counter + 5):
 			newFileName = f"{file.fileName} ({i}){file.ext}"
 			newDest = os.path.join(destDirName, f"{newFileName}")
 			if not os.path.exists(newDest):
 				os.rename(file.srcPath, newDest)
 				res = False
 				break
+		counter += 5
 
 def main():
 	folder_name = "PySort"
-	targetDir = "."
+	targetDir = input("Enter directory path to be sorted: ")
+
+	if not os.path.exists(targetDir):
+		print("\nProvided path doesn't exists.")
+		return
+
+	prompt = input(f"\nAre you sure you want to sort this directory?\n{os.path.abspath(targetDir)} (y/N): ")
+	if prompt[0].lower != "y":
+		print("\nOperation cancelled")
+		return
+
+	# scan files recursively
 	files, extensions = scanFiles(folder_name, targetDir) 
 
 	# create output dir
