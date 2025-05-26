@@ -61,7 +61,7 @@ def main():
 		return
 
 	prompt = input(f"\nAre you sure you want to sort this directory?\n{os.path.abspath(targetDir)} (y/N): ")
-	if prompt[0].lower != "y":
+	if prompt[0].lower() != "y":
 		print("\nOperation cancelled")
 		return
 
