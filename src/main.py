@@ -1,7 +1,4 @@
 import os
-import sys
-
-from traitlets import default
 
 class FileEntry:
 	def __init__(self, absPath, destPath, fileName, ext):
