@@ -27,7 +27,6 @@ def scanFiles(output_dir_name, path) -> tuple[list[FileEntry], set[str]]:
 
 def moveFile(file: FileEntry):
 	# auto rename if file exists
-
 	# skip "sorted" files
 	if file.srcPath == file.destPath:
 		return
@@ -65,13 +64,15 @@ def main():
 		print("\nOperation cancelled")
 		return
 
+	print("Scanning files 🔎...")
+
 	# scan files recursively
 	files, extensions = scanFiles(folder_name, targetDir) 
 
+	print(f"\nTotal files seen 🔎: {len(files)}")
+
 	# create output dir
-	if os.path.exists(folder_name):
-		print("Path Exists")
-	else:
+	if not os.path.exists(folder_name):
 		os.mkdir(folder_name)
 
 	# create sub folders inside output dir
@@ -79,14 +80,16 @@ def main():
 		folder_path = os.path.join(folder_name, ext)
 		if not os.path.exists(folder_path):
 			os.mkdir(folder_path)
-		else:
-			print(f"{ext} folder already exists")
+
+	print("Moving files, please wait 📂📂📂...")
 
 	# move files
 	for file in files:
 		# check if file exists
 		# check for duplicates and automatically rename
 		moveFile(file)
+
+	print("Cleanup 🧹🧹🧹...")
 
 	# delete empty folders
 	for root, dirs, _ in os.walk(targetDir, topdown=False):
@@ -100,4 +103,5 @@ def main():
 	if not os.listdir(folder_name):
 		os.rmdir(folder_name)
 
+	print("\nOperation complete! ✅")
 main()
