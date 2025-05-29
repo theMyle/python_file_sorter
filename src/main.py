@@ -1,4 +1,5 @@
 import os
+from re import I
 
 class FileEntry:
 	def __init__(self, absPath, destPath, fileName, ext):
@@ -7,7 +8,7 @@ class FileEntry:
 		self.fileName = fileName
 		self.ext = ext
 
-def scanFiles(path:str, outputDirName="PySort", unsortMode=False) -> tuple[list[FileEntry], set[str]]:
+def scanFiles(path:str, outputDirName:str="PySort", unsortMode=False):
 	extensions = set()
 	file_entries: list[FileEntry] = []
 	baseDir = os.path.abspath(path)
@@ -57,25 +58,29 @@ def moveFile(file: FileEntry):
 				break
 		counter += 5
 
-def sortFiles(targetDir: str, outputFolderName: str):
-	print("\nScanning files 🔎...")
+def sortFiles(targetDir: str, outputFolderName: str = "PySort", testing: bool = False):
+	if not testing: 
+		print("\nScanning files 🔎...")
 
 	# scan files recursively
-	files, extensions = scanFiles(targetDir) 
+	files, extensions = scanFiles(targetDir, outputFolderName) 
 
-	print(f"Total files seen 🔎: {len(files)}\n")
+	if not testing: 
+		print(f"Total files seen 🔎: {len(files)}\n")
 
 	# create output dir
-	if not os.path.exists(outputFolderName):
-		os.mkdir(outputFolderName)
+	outputDir = os.path.abspath(os.path.join(targetDir, outputFolderName))
+	if not os.path.exists(outputDir):
+		os.mkdir(outputDir)
 
 	# create sub folders inside output dir
 	for ext in extensions:
-		folder_path = os.path.join(outputFolderName, ext)
+		folder_path = os.path.join(outputDir, ext)
 		if not os.path.exists(folder_path):
 			os.mkdir(folder_path)
 
-	print("Moving files, please wait 📂📂📂...")
+	if not testing: 
+		print("Moving files, please wait 📂📂📂...")
 
 	# move files
 	for file in files:
@@ -83,7 +88,8 @@ def sortFiles(targetDir: str, outputFolderName: str):
 		# check for duplicates and automatically rename
 		moveFile(file)
 
-	print("Cleanup 🧹🧹🧹...")
+	if not testing: 
+		print("Cleanup 🧹🧹🧹...")
 
 	# delete empty folders
 	for root, dirs, _ in os.walk(targetDir, topdown=False):
@@ -93,19 +99,22 @@ def sortFiles(targetDir: str, outputFolderName: str):
 				os.rmdir(dir_path)
 
 	# delete empty PySort folder
-	if not os.listdir(outputFolderName):
-		os.rmdir(outputFolderName)
+	if not os.listdir(outputDir):
+		os.rmdir(outputDir)
 
-	print("\nOperation complete! ✅")
+	if not testing: 
+		print("\nOperation complete! ✅")
 
-def unsortFiles(targetDir: str):
-	print("\nScanning files 🔎...")
+def unsortFiles(targetDir: str, testing: bool = False):
+	if not testing:
+		print("\nScanning files 🔎...")
 
 	# scan files recursively
 	files, extensions = scanFiles(targetDir, unsortMode=True) 
 
-	print(f"Total files seen 🔎: {len(files)}\n")
-	print("Moving files, please wait 📂📂📂...")
+	if not testing:
+		print(f"Total files seen 🔎: {len(files)}\n")
+		print("Moving files, please wait 📂📂📂...")
 
 	# move files
 	for file in files:
@@ -113,7 +122,8 @@ def unsortFiles(targetDir: str):
 		# check for duplicates and automatically rename
 		moveFile(file)
 
-	print("Cleanup 🧹🧹🧹...")
+	if not testing:
+		print("Cleanup 🧹🧹🧹...")
 
 	# delete empty folders
 	for root, dirs, _ in os.walk(targetDir, topdown=False):
@@ -122,7 +132,8 @@ def unsortFiles(targetDir: str):
 			if not os.listdir(dir_path):
 				os.rmdir(dir_path)
 
-	print("\nOperation complete! ✅")
+	if not testing:
+		print("\nOperation complete! ✅")
 
 def main():
 	folder_name = "PySort"
@@ -140,4 +151,5 @@ def main():
 	sortFiles(targetDir, folder_name)
 	# unsortFiles(targetDir)
 
-main()
+if __name__ == "__main__":
+	main()
